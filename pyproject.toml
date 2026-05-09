@@ -1,0 +1,28 @@
+[project]
+name = "ksef-pdf-renamer"
+version = "0.1.0"
+description = "Web app for renaming KSeF invoice PDFs based on invoice contents."
+requires-python = ">=3.11"
+dependencies = [
+    "Flask>=3.0,<4.0",
+    "PyMuPDF>=1.24,<2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0,<9.0",
+]
+
+[project.scripts]
+ksef-pdf-renamer = "ksef_pdf_renamer.cli:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
